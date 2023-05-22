@@ -1,0 +1,30 @@
+@startuml
+
+interface AtaqueStrategy {
+    + atacar(): void
+}
+
+class AtaqueArma {
+    + atacar(): void
+}
+
+class AtaqueChute {
+    + atacar(): void
+}
+
+class AtaqueSoco {
+    + atacar(): void
+}
+
+class Personagem {
+    - ataqueStrategy: AtaqueStrategy
+    + setAtaqueStrategy(ataqueStrategy: AtaqueStrategy): void
+    + executarAtaque(): void
+}
+
+Personagem --> AtaqueStrategy
+AtaqueArma --|> AtaqueStrategy
+AtaqueChute --|> AtaqueStrategy
+AtaqueSoco --|> AtaqueStrategy
+
+@enduml

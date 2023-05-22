@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author cardo
+ *
+ */
+module strategy {
+}
