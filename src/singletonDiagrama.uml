@@ -1,0 +1,50 @@
+@startuml
+
+class ConfiguracaoJogo {
+    - instancia: ConfiguracaoJogo
+    - volume: int
+    - idioma: String
+    - ConfiguracaoJogo()
+    + getInstance(): ConfiguracaoJogo
+    + getVolume(): int
+    + setVolume(volume: int): void
+    + getIdioma(): String
+    + setIdioma(idioma: String): void
+    + main(args: String[]): void
+}
+
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: instancia
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: private constructor
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: getInstance()
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: getVolume()
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: setVolume(volume: int)
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: getIdioma()
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: setIdioma(idioma: String)
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: main(args: String[])
+
+@enduml
+@startuml
+
+class ConfiguracaoJogo {
+    - instancia: ConfiguracaoJogo
+    - volume: int
+    - idioma: String
+    - ConfiguracaoJogo()
+    + getInstance(): ConfiguracaoJogo
+    + getVolume(): int
+    + setVolume(volume: int): void
+    + getIdioma(): String
+    + setIdioma(idioma: String): void
+    + main(args: String[]): void
+}
+
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: instancia
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: private constructor
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: getInstance()
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: getVolume()
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: setVolume(volume: int)
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: getIdioma()
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: setIdioma(idioma: String)
+ConfiguracaoJogo --> "1" ConfiguracaoJogo: main(args: String[])
+
+@enduml

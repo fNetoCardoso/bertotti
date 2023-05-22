@@ -1,0 +1,38 @@
+@startuml
+
+class ReservaViagem {
+    + main(args: String[]): void
+}
+
+class SistemaReservaFacade {
+    - sistemaReservaVoos: SistemaReservaVoos
+    - sistemaReservaHoteis: SistemaReservaHoteis
+    + SistemaReservaFacade()
+    + reservarViagem(origem: String, destino: String, hotel: String, numeroQuartos: int): void
+}
+
+class SistemaReservaHoteis {
+    + verificarDisponibilidade(cidade: String, numeroQuartos: int): void
+    + selecionarHotel(hotel: String): void
+    + reservarHotel(): void
+}
+
+class SistemaReservaVoos {
+    + verificarDisponibilidade(origem: String, destino: String): void
+    + selecionarVoo(voo: String): void
+    + reservarVoo(): void
+}
+
+ReservaViagem --> "1" SistemaReservaFacade: facade
+SistemaReservaFacade --> "1" SistemaReservaVoos: sistemaReservaVoos
+SistemaReservaFacade --> "1" SistemaReservaHoteis: sistemaReservaHoteis
+SistemaReservaFacade --> "1" SistemaReservaFacade: SistemaReservaFacade()
+SistemaReservaFacade --> "1" SistemaReservaFacade: reservarViagem(origem: String, destino: String, hotel: String, numeroQuartos: int)
+SistemaReservaHoteis --> "1" SistemaReservaHoteis: verificarDisponibilidade(cidade: String, numeroQuartos: int)
+SistemaReservaHoteis --> "1" SistemaReservaHoteis: selecionarHotel(hotel: String)
+SistemaReservaHoteis --> "1" SistemaReservaHoteis: reservarHotel()
+SistemaReservaVoos --> "1" SistemaReservaVoos: verificarDisponibilidade(origem: String, destino: String)
+SistemaReservaVoos --> "1" SistemaReservaVoos: selecionarVoo(voo: String)
+SistemaReservaVoos --> "1" SistemaReservaVoos: reservarVoo()
+
+@enduml

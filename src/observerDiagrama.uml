@@ -1,0 +1,33 @@
+@startuml
+
+interface Observer {
+  +update(productName: String, quantity: int): void
+}
+
+class Main {
+  +main(args: String[]): void
+}
+
+class StockManager {
+  -name: String
+  +StockManager(name: String)
+  +update(productName: String, quantity: int): void
+}
+
+class StockSystem {
+  -observers: List<Observer>
+  -productName: String
+  -quantity: int
+  +addObserver(observer: Observer): void
+  +removeObserver(observer: Observer): void
+  +setProductQuantity(productName: String, quantity: int): void
+  -notifyObservers(): void
+}
+
+Observer <|.. StockManager
+Observer <|.. StockSystem
+StockSystem o-- Observer
+Main --> StockSystem
+Main --> StockManager
+
+@enduml

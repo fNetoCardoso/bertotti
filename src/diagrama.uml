@@ -1,0 +1,35 @@
+@startuml
+
+interface AttackStrategy {
+  +attack(): void
+}
+
+class BowAttackStrategy {
+  +attack(): void
+}
+
+class Character {
+  -attackStrategy: AttackStrategy
+  +setAttackStrategy(attackStrategy: AttackStrategy): void
+  +attack(): void
+}
+
+class MagicAttackStrategy {
+  +attack(): void
+}
+
+class SwordAttackStrategy {
+  +attack(): void
+}
+
+class Main {
+  +main(args: String[]): void
+}
+
+AttackStrategy <|.. BowAttackStrategy
+AttackStrategy <|.. MagicAttackStrategy
+AttackStrategy <|.. SwordAttackStrategy
+Character o-- AttackStrategy
+Character --> Main
+
+@enduml

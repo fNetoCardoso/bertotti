@@ -1,0 +1,24 @@
+@startuml
+
+interface MembroFamilia {
+    void apresentar()
+}
+
+class GrupoMembros {
+    - membros: List<MembroFamilia>
+    + GrupoMembros()
+    + adicionarMembro(membro: MembroFamilia): void
+    + removerMembro(membro: MembroFamilia): void
+    + apresentar(): void
+}
+
+class MembroIndividual {
+    - nome: String
+    + MembroIndividual(nome: String)
+    + apresentar(): void
+}
+
+MembroFamilia <|.. MembroIndividual
+MembroFamilia <|.. GrupoMembros
+
+@enduml
