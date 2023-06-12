@@ -1,0 +1,72 @@
+@startuml
+
+package controller {
+    interface Ingresso {
+        + emitirIngresso(): void
+    }
+
+    class TipoInteira {
+        - v: View
+        - c: Catalogo
+        + setV(view: View): void
+        + emitirIngresso(): void
+    }
+
+    class TipoMeiaItau {
+        - v: View
+        - c: Catalogo
+        + setV(view: View): void
+        + emitirIngresso(): void
+    }
+}
+
+package model {
+    class Catalogo {
+        - filmes: List<Filme>
+        - observers: List<Observer>
+        + Catalogo()
+        + registerObserver(o: Observer): void
+        + notifyObservers(encontrados: List): void
+        + addFilme(f: Filme): void
+        + buscarFilme(f: Filme): void
+        + adicionarFilme(titulo: String, ano: int): void
+        + buscarFilmePorTitulo(titulo: String): void
+        + buscarFilmePorTituloEAno(titulo: String, ano: int): void
+    }
+
+    class Filme {
+        - titulo: String
+        - ano: int
+        + Filme(t: String, a: int)
+        + getTitulo(): String
+        + getAno(): int
+        + matches(f: Filme): boolean
+    }
+
+    interface Subject {
+        + registerObserver(o: Observer): void
+        + notifyObservers(encontrados: List): void
+    }
+}
+
+package view {
+    interface Observer {
+        + update(l: List): void
+    }
+
+    class View {
+        - i: Ingresso
+        - listaFilmes: List
+        + setI(ingresso: Ingresso): void
+        + update(l: List): void
+        + imprimirDadosFilme(): void
+        + imprimirTipoMeiaItau(): void
+    }
+}
+
+View --|> Observer
+Catalogo --|> Subject
+TipoInteira --|> Ingresso
+TipoMeiaItau --|> Ingresso
+
+@enduml
